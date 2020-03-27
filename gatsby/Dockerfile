@@ -1,7 +1,7 @@
-FROM node:10-alpine
+FROM node:slim
 
-RUN apk update
+RUN apt-get update && apt-get install -y libglu1 libxi6 libgconf-2-4
 
-RUN apk add git
+RUN ldconfig
 
 RUN npm install -g gatsby-cli
